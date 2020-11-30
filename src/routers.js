@@ -1,4 +1,4 @@
-import customer from './components/customer'
+import forms from './components/forms'
 import details from './components/details'
 import usages from './components/usages'
 import register from './components/register'
@@ -13,7 +13,7 @@ Vue.use(Vuerouter)
 const router = new Vuerouter({
     mode:'history',
     routes:[
-        {path:'/customer',name:'customer',component:customer},
+        {path:'/forms',name:'forms',component:forms},
         {path:'/details',name:'details',component:details},
         {path:'/usages',name:'usages',component:usages},
         {path:'/register',name:'register',component:register},
@@ -22,5 +22,22 @@ const router = new Vuerouter({
         {path:'/logout',name:'logout',component:logout},
     ]
 }) 
+
+
+const openRoutes=['forms','login','register']
+
+router.beforeEach((to,from,next)=>{
+        
+    if(openRoutes.includes(to.name)){
+        next()
+    }
+    else if(localStorage.getItem('user-token')){
+        next()
+    }
+    else{
+        next('/login')
+    }    
+
+})
 
 export default router
