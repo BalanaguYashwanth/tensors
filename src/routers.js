@@ -5,6 +5,8 @@ import register from './components/register'
 import helloworld from  './components/HelloWorld'
 import login from './components/login'
 import logout from './components/logout'
+import forgotpassword from './components/forgotpassword'
+
 
 import Vue from 'vue'
 import Vuerouter from 'vue-router'
@@ -20,11 +22,12 @@ const router = new Vuerouter({
         {path:'/helloworld',name:'helloworld',component:helloworld},
         {path:'/login',name:'login',component:login},
         {path:'/logout',name:'logout',component:logout},
+        {path:'/forgotpassword',name:'forgotpassword',component:forgotpassword}
     ]
 }) 
 
 
-const openRoutes=['forms','login','register']
+const openRoutes=['forms','login','register','forgotpassword']
 
 router.beforeEach((to,from,next)=>{
         

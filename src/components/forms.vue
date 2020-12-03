@@ -1,6 +1,6 @@
 <template>
     <div class="container" id="container"> 
-        <h1 style="text-align:center" >  Customer Form </h1>
+        <h1 style="text-align:center" >   Form </h1>
       <form>
           <div class="form-row">
               <div class="col-md-6" >
@@ -41,7 +41,10 @@ export default {
                 customer_name:this.name,
                 customer_phonenumber:this.phonenumber,
                 customer_address:this.address,
-            }).then(res => console.log(res))
+            }).then(res =>{ 
+                console.log(res)
+                location.reload()
+                })
             .catch(err=> console.log(err))
         }        
     }

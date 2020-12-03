@@ -2,16 +2,14 @@
     <div id="mainbody" >
     <div class="container" >
         <form>
-            <img src="../assets/logo1.jpeg" class=" shadow" style="height:auto; width:25%;  border-radius: 50%;" alt="logo" >  
+           <h1  class="display-3">  Forgot password </h1> 
             <div class="col-md-6 mx-auto" >              
                 <br>  
                 <input type="text" class="form-control border border-dark"  v-model="username" placeholder="username">
                 <input type="password" class="form-control border border-dark" v-model="password"  placeholder="password">
-                <p style="float:right; padding-left:100px   "  > <a href="http://localhost:8080/resetpassword">  forgot password? </a>  </p>
             </div>
-              <div>
-                <button style="float:right" class="btn btn-secondary  text-center mx-auto d-block"  v-on:click.prevent="submit" > submit </button>
-              </div>
+            
+              <button class="btn btn-secondary mx-auto d-block"  v-on:click.prevent="submit" > submit </button>
         </form>
         {{info}}
     </div>
@@ -30,14 +28,13 @@ export default {
     },
     methods:{
         submit:function(){
-            axois.post('http://127.0.0.1:8000/login',{
+            axois.post('http://127.0.0.1:8000/resetpassword',{
                 username:this.username,
                 password:this.password
             })
             .then(res=>{
                 console.log(res)
-                localStorage.setItem('user-token',res.data.token)
-                this.$router.push('/details')
+                this.info=res.data
                 })
             .catch(err=>{
                 console.log(err)
@@ -45,14 +42,14 @@ export default {
                 })
         }
     }
-
 }
+
 </script>
 
-<style >
+<style>
 
 #mainbody{
-    padding-top: 60px;
+    padding-top: 150px;
 }
 
 input{
@@ -60,10 +57,8 @@ input{
     border-style: solid;
     margin: auto;
     margin-bottom: 10px;
-    
+    text-align: center;
 }
-
-
 
 
 </style>
