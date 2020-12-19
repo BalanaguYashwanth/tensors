@@ -52,7 +52,7 @@ export default {
 
     methods:{
         deleting:function(id){
-            axios.delete('http://127.0.0.1:8000/api/v1/'+id+'/')
+            axios.delete('https://regulator-values.herokuapp.com/api/v1/'+id+'/')
             .then(res=>{
                 console.log(res)
                 location.reload()
@@ -66,7 +66,7 @@ export default {
                 Authorization: "Token " + localStorage.getItem("user-token"),
                 },
             };
-            axios.get('http://127.0.0.1:8000/logout',axiosConfig)
+            axios.get('https://regulator-values.herokuapp.com/logout',axiosConfig)
             .then(res=>{
                 console.log(res)
                 localStorage.removeItem('user-token')
@@ -82,7 +82,7 @@ export default {
                 Authorization: "Token " + localStorage.getItem("user-token"),
             }
         }
-        axios.get('http://127.0.0.1:8000/api/v1/',axiosConfig)
+        axios.get('https://regulator-values.herokuapp.com/api/v1/',axiosConfig)
         .then(res=>{
             console.log(res)
             this.result=res.data

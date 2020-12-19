@@ -5,11 +5,11 @@
             <img src="../assets/logo1.jpeg" class=" shadow" style="height:auto; width:25%;  border-radius: 50%;" alt="logo" >  
             <div class="col-md-6 mx-auto" >              
                 <br>  
-                <input type="text" class="form-control border border-dark" v-model="first_name" placeholder="first name" >
-                <input type="text" class="form-control border border-dark" v-model="last_name" placeholder="last name">
-                <input type="text" class="form-control border border-dark" v-model="username" placeholder="username">
-                <input type="text" class="form-control border border-dark" v-model="email" placeholder="email">
-                <input type="password" class="form-control border border-dark" v-model="password" placeholder="password">
+                <input type="text" class="form-control border border-dark m-1 p-3 " v-model="first_name" placeholder="First name" >
+                <input type="text" class="form-control border border-dark m-1" v-model="last_name" placeholder="Last name">
+                <input type="text" class="form-control border border-dark m-1" v-model="username" placeholder="Username">
+                <input type="text" class="form-control border border-dark m-1" v-model="email" placeholder="Email">
+                <input type="password" class="form-control border border-dark m-1" v-model="password" placeholder="Password">
             </div>
               <button class="btn btn-secondary mx-auto d-block" v-on:click.prevent="submit" > submit </button>
         </form>
@@ -35,7 +35,7 @@ export default {
 
     methods:{
         submit:function(){
-            axios.post('http://127.0.0.1:8000/register',{
+            axios.post('https://regulator-values.herokuapp.com/register',{
                 first_name:this.first_name,
                 last_name:this.last_name,
                 username:this.username,

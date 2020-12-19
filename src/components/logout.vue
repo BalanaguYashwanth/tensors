@@ -14,7 +14,7 @@ export default {
             }           
         };
 
-        axios.get('http://127.0.0.1:8000/logout',axiosConfig)
+        axios.get('https://regulator-values.herokuapp.com/logout',axiosConfig)
         .then(res=>{
             console.log(res)
             localStorage.removeItem('user-token')

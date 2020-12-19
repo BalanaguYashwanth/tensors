@@ -37,7 +37,7 @@ export default {
 
     methods:{
         posting:function(){
-            axios.post('http://127.0.0.1:8000/api/v1/',{
+            axios.post('https://regulator-values.herokuapp.com/api/v1/',{
                 customer_name:this.name,
                 customer_phonenumber:this.phonenumber,
                 customer_address:this.address,
