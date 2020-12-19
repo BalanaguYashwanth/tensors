@@ -5,8 +5,7 @@
         <!-- <slot name="menu" > </slot> -->
         <!-- <button class="btn btn-outline-info mx-2" style="float:right" v-on:click="logout" > logout </button> -->
         <br>
-             
-
+        
         <h1 style="text-align:center; " > Home </h1>
              
         <table class="table table-bordered bg-white rounded "  style="table-layout: auto; width: 100%;  "> 
@@ -25,9 +24,11 @@
         <!-- <p v-bind:class="{'fa-checkbox-marked': content['cravings'],  'fa-checkbox-blank-outline': !content['cravings']}" >  </p> -->
 
                     <!-- <th> {{index+1}} </th> -->
-                    <td> {{datas.event}} </td>
-                    <td> {{datas.data}} </td>
-                    <td> {{timeformat(datas.published_at)}} </td>
+                    
+                    <td>  <p v-show="!datas.old" class="fas fa-check-square" > </p> {{datas.old}} {{datas.event}} </td>
+                    <td> {{datas.data}}  </td>
+                    <td >    {{timeformat(datas.published_at)}}  </td>
+
                 </tr>
             </tbody>
         </table>

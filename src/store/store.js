@@ -55,8 +55,6 @@ export const store= new Vuex.Store({
                     datas.push(allres[obj])
                 }
 
-                
-               
                 datas.sort(function(a,b){
                     let date=new Date(a.published_at)
                     let date1=new Date(b.published_at)
@@ -69,12 +67,19 @@ export const store= new Vuex.Store({
 
                 if(this.state.alldata.length>0 && notificationData.length>0 )
                 {
-
                     for(let obj in notificationData)
                     {
-                        console.log(obj)
+                        if(this.state.alldata[obj])
+                        {
+                            notificationData[obj].old=true
+                            console.log('exists')
+                        }
+                        else{
+                            notificationData[obj].old=false
+                            console.log(' updated')
+                        }
                     }
-
+                    
                     notify= notificationData.length - this.state.alldata.length 
                     if(notify>0)
                     {
@@ -104,8 +109,8 @@ export const store= new Vuex.Store({
 
                 console.log('notify',notify)
               
-
-                context.commit('gets',datas)
+                console.log(notificationData)
+                context.commit('gets',notificationData)
             })
             .catch(err=>console.log(err))
         }
